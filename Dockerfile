@@ -5,10 +5,17 @@ WORKDIR /app
 
 # Copia il file requirements.txt
 COPY requirements.txt .
+RUN ls
 
 # Aggiorna pip e installa le dipendenze
 RUN python -m pip install --upgrade pip && \
     python -m pip install --no-cache-dir -r requirements.txt
+
+
+
+RUN python -m pip list
+
+
 
 # Copia il resto dell'applicazione
 COPY . .
