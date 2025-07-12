@@ -1,0 +1,21 @@
+
+
+{% extends 'music_streaming/base.html' %}
+
+{% block title %}Song Detail{% endblock %}
+
+{% block content %}
+    <h2>{{ song.title }} by{{ song.artist }}</h2>
+    <p>Album:{{ song.album }}</p>
+    <p>Genre:{{ song.genre }}</p>
+    <p>Song PK: {{ song.pk }}</p>
+    <p>Duration:{{ song.duration }}minutes</p>
+    <a href="{% url 'music_streaming:song_update' song.pk%}">Edit</a>
+    <form action="{% url 'music_streaming:song_confirm_delete' song.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'music_streaming:song_list' %}">Back to song list</a>
+
+
+{%  endblock%}

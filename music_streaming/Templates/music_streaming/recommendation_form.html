@@ -1,0 +1,16 @@
+{% extends 'music_streaming/base.html' %}
+
+
+
+{% block title %}{% if recommendation %}Update{% else %}Crea{% endif %} Raccomandazione{% endblock %}
+
+{% block content %}
+  <h2>{% if recommendation %}Update{% else %}Create{% endif %} Recommendations</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if recommendation %}Update{% else %}Create{% endif %}</button>
+  </form>
+  <a href="{% url 'music_streaming:recommendation_list' %}">Cancel</a>
+{% endblock %}
+

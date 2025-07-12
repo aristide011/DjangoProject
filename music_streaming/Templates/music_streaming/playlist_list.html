@@ -1,0 +1,20 @@
+
+{% extends 'music_streaming/base.html' %}
+
+{% block title %} Playlist List {% endblock %}
+
+{% block content %}
+    <h2>Playlists</h2>
+    <form method ="get">
+       <input type="text" name="q" placeholder="Search for a playlist...">
+    <button type="submit">Search</button>
+    </form>
+    <ul>
+    {% for playlist in playlists %}
+    <li><a href="{% url 'music_streaming:playlist_form'  playlist.pk%}">{{ playlist.name }}</a>{{ playlist.user.username }} </li>
+    {% empty %}
+    <li>No playlist found</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'music_streaming:playlist_form' %}"> Add a new playlist</a>
+{% endblock %}

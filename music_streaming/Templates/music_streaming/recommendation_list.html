@@ -1,0 +1,15 @@
+
+
+{% extends 'music_streaming/base.html' %}
+
+{% block content %}
+    <h2>Your recommendations</h2>
+    <ul>
+    {% for recommendation in object_list %}
+        <li>Score:{{ recommendation.score }} on {{ recommendation.created_at|date:"d M Y" }} at{{ recommendation.created_at| time:"H:i" }}</li>
+    {% empty %}
+        <li>No recommendations yet</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'music_streaming:recommendation_form' %}" > add a new recommendation</a>
+{% endblock %}

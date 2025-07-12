@@ -1,0 +1,15 @@
+
+{% extends 'music_streaming/base.html' %}
+
+{% block title %} Add New Song {% endblock %}
+
+{% block content %}
+    <h2>Add New Song</h2>
+    <form method="post">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Create Song</button>
+    </form>
+    <a href="{%url 'music_streaming:song_list'%}">Back to Song List</a>
+
+{% endblock %}

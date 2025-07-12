@@ -1,0 +1,20 @@
+
+
+{% extends 'music_streaming/base.html' %}
+{% block title %} Song List{% endblock %}
+
+{%block content%}
+   <h2>Song List</h2>
+   <form method="get">
+       <input type="text" name="q"  placeholder="Search for a song..." >
+       <button type="submit">Search</button>
+   </form>
+   <ul>
+       {% for song in songs %}
+        <li><a href="{% url 'music_streaming:song_detail' song.pk %}">{{ song.title|upper }}</a> by {{ song.artist }}</li>
+       {% empty %}
+       <li>No songs found</li>
+       {% endfor %}
+   </ul>
+  <a href="{% url 'music_streaming:song_create' %}"> Add a new song</a>
+{% endblock %}

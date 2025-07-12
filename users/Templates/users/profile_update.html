@@ -1,0 +1,14 @@
+{% extends 'users/base.html' %}
+
+
+{% block title %}Update Profile{% endblock %}
+
+{% block content  %}
+    <h2>Update profile</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'users:profile' %}">Cancel</a>
+{%endblock %}

@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+
+
+
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <h2>Your profile</h2>
+    <p><strong>Username:</strong>{{ request.user.username }}</p>
+    <p><strong>First Name</strong>{{ request.user.first_name }}</p>
+    <p><strong>Last Name</strong>{{ request.user.last_name }}</p>
+    <p><strong>Email:</strong>{{ request.user.email }}</p>
+    <p><strong>Bio:</strong>{{ userprofile.bio }}</p>
+    {% if userprofile.profile_picture %}
+    <img src="{{ userprofile.profile_picture.url }}" alt="Profile picture">
+    {% endif %}
+    <a href="{% url 'users:profile_update' %}">Edit Profile</a>
+    <form action ="{% url 'users:userProfile_confirm_delete' pk=request.user.userprofile.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Delete Profile</button>
+    </form>
+{% endblock %}

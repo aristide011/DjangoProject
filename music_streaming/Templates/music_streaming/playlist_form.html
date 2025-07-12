@@ -1,0 +1,14 @@
+{% extends 'music_streaming/base.html' %}
+
+{% block title %}{% if playlist %} Update{% else %}Create{% endif %}Playlist{% endblock %}
+
+{% block content %}
+    <h2>{% if playlist %} update{% else %}Create{% endif %} Playlist</h2>
+    <form method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if playlist %}Update{% else %} Create{% endif %}</button>
+    </form>
+    <a href="{% url 'music_streaming:playlist_list' %}">Cancel </a>
+
+{% endblock %}

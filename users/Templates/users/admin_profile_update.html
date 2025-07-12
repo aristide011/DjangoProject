@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <h2> Admin Update User Profile</h2>
+    <form method ="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'users:profile' %}">Cancel</a>
+{% endblock %}
