@@ -2,7 +2,7 @@ jupyter~=1.0.0
 pip~=24.2
 panel~=1.5.2
 attrs~=23.1.0
-zlib~=1.2.13
+
 distro~=1.9.0
 wheel~=0.44.0
 pysocks~=1.7.1
