@@ -21,5 +21,5 @@ RUN python -m pip list
 COPY . .
 
 # Comando di avvio della tua applicazione
-CMD ["gunicorn", "Back_end.wsgi:application", "--workers", "3", "--bind", "0.0.0.0:8000"]
+CMD ["python" ,"-m" , "gunicorn", "Back_end.wsgi:application", "--workers", "3", "--bind", "0.0.0.0:8000"]
 
