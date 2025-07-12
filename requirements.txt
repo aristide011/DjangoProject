@@ -7,7 +7,7 @@ distro~=1.9.0
 wheel~=0.44.0
 pysocks~=1.7.1
 protobuf~=4.25.3
-openssl~=3.0.16
+
 pyopenssl~=24.2.1
 cryptography~=43.0.0
 pillow~=10.4.0
