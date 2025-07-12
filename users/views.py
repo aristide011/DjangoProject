@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
-from django.http import HttpResponseRedirect,HttpResponseForbidden
+from django.http import HttpResponseRedirect,HttpResponseForbidden,HttpResponse
 
 
 
@@ -134,3 +134,5 @@ class UserLogoutView(LoginRequiredMixin,LogoutView):
         return super().dispatch(request,*args, **kwargs)
 
 
+def home(request):
+    return HttpResponse("Benvenuto nella mia applicazione!")

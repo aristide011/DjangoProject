@@ -1,7 +1,7 @@
 from django .urls import path
 from .views import (UserRegisterView, CustomUserUpdateView, CustomUserDeleteView, UserProfileDeleteView,
                      UserProfileUpdateView,
-                    UserProfileView,UserAdminUpdateView,UserLoginView,UserLogoutView,UserListView)
+                    UserProfileView,UserAdminUpdateView,UserLoginView,UserLogoutView,UserListView,home)
 
 app_name="users"
 
@@ -19,6 +19,7 @@ urlpatterns=[
 
     path('users/', UserListView.as_view(), name='user_list'),
 
+     path('', home, name='home'),
 
 
 
