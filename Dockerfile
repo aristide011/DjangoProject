@@ -5,15 +5,16 @@ WORKDIR /app
 
 # Copia il file requirements.txt
 COPY requirements.txt .
-RUN ls
-
-# Aggiorna pip e installa le dipendenze
-RUN python -m pip install --upgrade pip && \
-    python -m pip install --no-cache-dir -r requirements.txt
 
 
 
-RUN python -m pip list
+# Aggiorna pip
+RUN python -m pip install --upgrade pip
+#Installa le dipendenze
+RUN python -m pip install --no-cache-dir -r requirements.txt
+
+
+
 
 
 
@@ -21,5 +22,7 @@ RUN python -m pip list
 COPY . .
 
 # Comando di avvio della tua applicazione
-CMD ["python" ,"-m" , "gunicorn", "Back_end.wsgi:application", "--workers", "3", "--bind", "0.0.0.0:8000"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=8000", "Back_end.wsgi:application"]
+
+
 

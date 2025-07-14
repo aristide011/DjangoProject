@@ -1,5 +1,5 @@
 jupyter~=1.0.0
-pip~=24.2
+pip~=25.1.1
 panel~=1.5.2
 attrs~=23.1.0
 
@@ -23,7 +23,8 @@ colorama~=0.4.6
 pyyaml~=6.0.1
 jinja2~=3.1.4
 tblib~=1.7.0
-numpy~=1.26.4
+numpy~=2.3.1
 requests~=2.32.3
 pyparsing~=3.1.2
-gunicorn~=23.0.0
+
+waitress~=3.0.2
