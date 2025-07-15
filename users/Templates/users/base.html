@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,8 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>{% block title %} Music app{% endblock %}</title>
 
-    <style>
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-    }
-   </style>
+
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <header>
@@ -39,9 +31,11 @@
   <main>
       {% block content %}{% endblock %}
   </main>
-</body>
+
 <footer>
     <p>&copy ;2025 Music</p>
 </footer>
 
+<script src="{% static 'js/script.js' %}"></script>
+</body>
 </html>

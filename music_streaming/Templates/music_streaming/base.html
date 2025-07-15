@@ -1,24 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name ='viewport', content="width=device-width", initial_scale="1.0">
+    <meta name ="viewport" content="width=device-width initial_scale= 1.0">
     <title>{% block title %}Music App {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <style>
-        footer {
-            bottom: 5rem;
-            background-color: #1b1b1b;
-            position:fixed;
-            width:100%;
-            color:#fff;
-            text-align: center;
-            padding:10px;
-
-
-
-        }
-    </style>
 
 </head>
 <body>
@@ -38,6 +26,8 @@
 <footer>
     <p>&copy;2025 Music App</p>
 </footer>
+
+<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>
