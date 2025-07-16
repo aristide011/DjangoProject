@@ -21,11 +21,13 @@ from users.views import HomeView
 
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls',namespace='users')),
     path('music_streaming/',include('music_streaming.urls',namespace='music_streaming')),
-    path('', HomeView, name='home'),
+    path('', HomeView.as_view(), name='home'),
 
 
 
