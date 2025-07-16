@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.views import LoginView  # Impostazione della loginView
-from django .views.generic import CreateView,UpdateView,DetailView,DeleteView,ListView
+from django .views.generic import CreateView,UpdateView,DetailView,DeleteView,ListView,TemplateView
 from .models import UserProfile,CustomUser
 from .forms import UserRegistrationForm
 from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
@@ -134,5 +134,6 @@ class UserLogoutView(LoginRequiredMixin,LogoutView):
         return super().dispatch(request,*args, **kwargs)
 
 
-def home(request):
-    return HttpResponse("Benvenuto nella mia applicazione!")
+def HomeView(TemplateView):
+    template_name='home.html'
+
