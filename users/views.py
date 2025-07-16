@@ -135,5 +135,5 @@ class UserLogoutView(LoginRequiredMixin,LogoutView):
 
 
 class HomeView(TemplateView):
-    template_name='home.html'
+    template_name='users/home.html'
 
