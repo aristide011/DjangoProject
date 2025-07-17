@@ -134,6 +134,6 @@ class UserLogoutView(LoginRequiredMixin,LogoutView):
         return super().dispatch(request,*args, **kwargs)
 
 
-class HomeView(TemplateView):
-    template_name='users/home.html'
 
+def home_view(request):
+         return render(request, 'home.html')

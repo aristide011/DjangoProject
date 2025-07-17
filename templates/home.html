@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="it">
-
 <head>
+    <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-    <h1>Benvenuto nella mia applicazione!</h1>
+    <h1>Benvenuto nella mia applicazione Django!</h1>
     <ul>
-        <li><a href="{% url 'users:user_list' %}">Utenti</a></li>
+        <li><a href="{% url 'users:user_list' %}">Gestione Utenti</a></li>
         <li><a href="{% url 'music_streaming:song_list' %}">Canzoni</a></li>
         <li><a href="{% url 'music_streaming:playlist_list' %}">Playlist</a></li>
         <li><a href="{% url 'music_streaming:recommendation_list' %}">Consigli</a></li>
@@ -18,5 +17,3 @@
     </ul>
 </body>
 </html>
-
-

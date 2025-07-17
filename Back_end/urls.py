@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import View
-from users.views import HomeView
+from users.views import home_view
 
 
 
@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls',namespace='users')),
     path('music_streaming/',include('music_streaming.urls',namespace='music_streaming')),
-    path('', HomeView.as_view(), name='home'),
+    path('', home_view, name='home'),
 
 
 
