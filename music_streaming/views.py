@@ -24,7 +24,7 @@ class SongDetailView(DetailView):
         model=Song
         template_name='music_streaming/song_detail.html'
         context_object_name='song'
-        
+
 
         def get_object(self):
             print(Song.objects.all())  # stampa tutti gli oggetti song nel database
