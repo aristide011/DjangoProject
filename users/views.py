@@ -55,7 +55,7 @@ class UserListView(ListView):
     template_name ='users/user_list.html'
     context_object_name='users'
 
-    
+
     def get_queryset(self):
         query=self.request.GET.get('q')
         if query:
@@ -67,7 +67,7 @@ class UserProfileView( LoginRequiredMixin ,DetailView):#mostra il profilo dell'u
     model=UserProfile
     template_name = 'users/profile.html'
 
-    def get_object(self):
+    def get_object(self,queryset=None):
         try:
             return self.request.user.userprofile
         except AttributeError:
@@ -81,7 +81,7 @@ class UserProfileUpdateView(LoginRequiredMixin,UpdateView) :
     template_name = 'users/profile_update.html'
     success_url = reverse_lazy('users:profile')
 
-    def get_object(self):
+    def get_object(self,queryset=None):
         return self.request.user.userprofile
 
     def form_valid (self,form ):
