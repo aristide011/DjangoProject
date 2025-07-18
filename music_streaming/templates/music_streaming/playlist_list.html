@@ -11,10 +11,10 @@
     </form>
     <ul>
     {% for playlist in playlists %}
-    <li><a href="{% url 'music_streaming:playlist_form'  playlist.pk%}">{{ playlist.name }}</a>{{ playlist.user.username }} </li>
+    <li><a href="{% url 'music_streaming:playlist_update'  playlist.pk%}">{{ playlist.name }}</a>{{ playlist.user.username }} </li>
     {% empty %}
     <li>No playlist found</li>
     {% endfor %}
     </ul>
-    <a href="{% url 'music_streaming:playlist_form' %}"> Add a new playlist</a>
+    <a href="{% url 'music_streaming:playlist_create' %}"> Add a new playlist</a>
 {% endblock %}
