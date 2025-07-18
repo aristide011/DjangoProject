@@ -55,9 +55,7 @@ class UserListView(ListView):
     template_name ='users/user_list.html'
     context_object_name='users'
 
-    def test_func(self):
-        return self.request.user.is_superuser
-
+    
     def get_queryset(self):
         query=self.request.GET.get('q')
         if query:
