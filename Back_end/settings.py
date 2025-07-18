@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Back_end.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates',BASE_DIR/'users/templates',BASE_DIR/'music_streaming/templates'],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

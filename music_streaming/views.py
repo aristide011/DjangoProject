@@ -24,7 +24,7 @@ class SongDetailView(DetailView):
         model=Song
         template_name='music_streaming/song_detail.html'
         context_object_name='song'
-        context_object_name = 'song'
+        
 
         def get_object(self):
             print(Song.objects.all())  # stampa tutti gli oggetti song nel database
@@ -67,7 +67,7 @@ class SongDeleteView(LoginRequiredMixin, DeleteView):
 class PlaylistCreateView(LoginRequiredMixin,CreateView):# solo utenti loggati possono creare playlist
     model= Playlist
     fields=['songs','name']
-    template_name='music_streaming/playlist_form.html'
+    template_name='music_streaming/playlist_create.html'
     success_url =reverse_lazy('playlist_list')
 
     def form_valid(self, form):
@@ -90,7 +90,7 @@ class PlaylistListView(ListView):
 class PlaylistUpdateView(LoginRequiredMixin,UpdateView):#solo utenti loggati possono fare aggiornamenti
     model = Playlist
     fields=['name']
-    template_name = 'music_streaming/playlist_form.html'
+    template_name = 'music_streaming/playlist_update.html'
     success_url = reverse_lazy('music_streaming:playlist_list')
 
 
@@ -106,7 +106,7 @@ class PlaylistDeleteView(LoginRequiredMixin,DeleteView):
 class RecommendationsCreateView(LoginRequiredMixin,CreateView) :
     model=Recommendations
     fields=['score','song']
-    template_name='music_streaming/recommendation_form.html'
+    template_name='music_streaming/recommendation_create.html'
     success_url = reverse_lazy('music_streaming:recommendation_list')
 
     def form_valid(self,form):

@@ -1,0 +1,13 @@
+{% extends 'music_streaming/base.html' %}
+
+
+{% block title %} Add New playlist {% endblock %}
+{% block content %}
+    <h1>Crea playlist</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crea</button>
+    </form>
+{% endblock %}
+

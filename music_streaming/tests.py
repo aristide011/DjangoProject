@@ -174,13 +174,13 @@ class PlaylistCreateViewTest(TestCase) :
         self.client.force_login(self.user)
 
     def test_view_url_exists_at_desired_location(self):
-        response=self.client.get(reverse('music_streaming:playlist_form'))
+        response=self.client.get(reverse('music_streaming:playlist_create'))
         self.assertEqual(response.status_code,200)
 
     def test_view_uses_correct_template(self):
-        response=self.client.get(reverse('music_streaming:playlist_form'))
+        response=self.client.get(reverse('music_streaming:playlist_create'))
         self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response,'music_streaming/playlist_form.html')
+        self.assertTemplateUsed(response,'music_streaming/playlist_create.html')
 
 class PlaylistListViewTest(TestCase):
     def setUp(self):
@@ -211,23 +211,23 @@ class PlaylistUpdateViewTest(TestCase):
         self.playlist = Playlist.objects.create(name='Test Playlist',user=self.user)
 
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get(reverse('music_streaming:playlist_form', kwargs={'pk': self.playlist.pk}))
+        response = self.client.get(reverse('music_streaming:playlist_update', kwargs={'pk': self.playlist.pk}))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
-        response = self.client.get(reverse('music_streaming:playlist_form', kwargs={'pk': self.playlist.pk}))
+        response = self.client.get(reverse('music_streaming:playlist_update', kwargs={'pk': self.playlist.pk}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'music_streaming/playlist_form.html')
+        self.assertTemplateUsed(response, 'music_streaming/playlist_update.html')
 
     def test_update_playlist(self):
         data = {'name': 'Updated Test Playlist'}
-        response = self.client.post(reverse('music_streaming:playlist_form', kwargs={'pk': self.playlist.pk}), data)
+        response = self.client.post(reverse('music_streaming:playlist_update', kwargs={'pk': self.playlist.pk}), data)
         self.assertEqual(response.status_code, 302)
         self.playlist.refresh_from_db()
         self.assertEqual(self.playlist.name, 'Updated Test Playlist')
 
         self.client.force_login(self.user)
-        response = self.client.post(reverse('music_streaming:playlist_form', args=[self.playlist.pk]),
+        response = self.client.post(reverse('music_streaming:playlist_update', args=[self.playlist.pk]),
                                     {'name': 'New Name'})
         self.assertEqual(response.status_code, 302)
 
@@ -275,16 +275,16 @@ class RecommendationsCreateViewTest(TestCase):
         self.client.force_login(self.user)
 
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get(reverse('music_streaming:recommendation_form'))
+        response = self.client.get(reverse('music_streaming:recommendation_create'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
-        response = self.client.get(reverse('music_streaming:recommendation_form'))
-        self.assertTemplateUsed(response, 'music_streaming/recommendation_form.html')
+        response = self.client.get(reverse('music_streaming:recommendation_create'))
+        self.assertTemplateUsed(response, 'music_streaming/recommendation_create.html')
 
     def test_create_recommendation(self):
         song=Song.objects.create(title='title of song',artist='artist of song',duration= 180)
-        response = self.client.post(reverse('music_streaming:recommendation_form'), {'score': 5,'song':song.id})
+        response = self.client.post(reverse('music_streaming:recommendation_create'), {'score': 5,'song':song.id})
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Recommendations.objects.count(), 1)
 
