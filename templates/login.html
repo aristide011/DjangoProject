@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+    {% if form.non_field_errors %}
+    <p style="color:red;">{{ form.non_field_errors}} </p>
+    {% endif %}
+    </form>
+    <a href="{% url 'users:register' %}">Don't have an account ? Register here</a>
+{% endblock %}
