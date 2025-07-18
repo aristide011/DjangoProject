@@ -50,7 +50,7 @@ class CustomUserDeleteView(LoginRequiredMixin,DeleteView):
             return HttpResponseForbidden()
 
 
-class UserListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
+class UserListView(ListView):
     model =CustomUser
     template_name ='users/user_list.html'
     context_object_name='users'

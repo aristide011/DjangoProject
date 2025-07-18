@@ -8,8 +8,39 @@
 
 
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <style>
+       .hero{
+            height:100vh;
+            background-image:url('https://tse3.mm.bing.net/th/id/OIP.ZVPKdrdw5Nmm6w4hda83lQHaE7?pid=Api');
+            background-size:cover;
+            background-position:center;
+            position:relative;
+            margin-top:120px;
+        }
+       .containerW{
+            max-width:100%;
+            padding:0.4rem 3rem;
+            display:flex;
+            align-items: center ;
+            justify-content :center;
+            white-space:nowrap;
+            gap:40px;
+            font-size: 70px;
+            font-weight:bold;
+            margin-left:50px;
+
+
+        }
+   </style>
 </head>
 <body>
+  <header>
+<div class="containerW"></div>
+      <h1>Benvenuto !!!</h1>
+
+</header>
+  <div class="hero">
+
   <header>
       <h1>Music App</h1>
     <nav>
@@ -31,9 +62,9 @@
   <main>
       {% block content %}{% endblock %}
   </main>
-
+  </div>
 <footer>
-    <p>&copy ;2025 Music</p>
+    <p>&copy 2025 Music</p>
 </footer>
 
 <script src="{% static 'js/script.js' %}"></script>

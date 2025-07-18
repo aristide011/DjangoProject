@@ -4,14 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width initial_scale= 1.0">
-    <title>{% block title %}Music App {% endblock %}</title>
+    <title>{% block title %}Music {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+       .hero{
+            height:100vh;
+            background-image:url('https://tse3.mm.bing.net/th/id/OIP._iTNXOcNhbprRAyCsVFT1AHaHa?pid=Api');
+            background-size:cover;
+            background-position:center;
+            position:relative;
+            margin-top:120px;
+        }
+       .containerW{
+            max-width:100%;
+            padding:0.4rem 3rem;
+            display:flex;
+            align-items: center ;
+            justify-content :center;
+            white-space:nowrap;
+            gap:40px;
+            font-size: 70px;
+            font-weight:bold;
+            margin-left:50px;
 
+
+        }
+   </style>
 
 </head>
 <body>
 <header>
-    <h1>Music App</h1>
+<div class="containerW"></div>
+      <h1>Benvenuto su Music App!!</h1>
+
+</header>
+<div class="hero">
+<header>
+
+    <h1>Music </h1>
     <nav>
         <ul>
             <li><a href="{% url 'music_streaming:song_list' %}"> Songs</a></li>
@@ -28,6 +58,6 @@
 </footer>
 
 <script src="{% static 'js/script.js' %}"></script>
-
+</div>
 </body>
 </html>
